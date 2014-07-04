@@ -24,12 +24,12 @@ post '/surveys/create' do
     end
   end
 
-redirect to "/surveys/#{@survey.id}"
+  redirect to "/surveys/#{@survey.id}"
 end
 
 get '/surveys/:survey_id' do
-@survey = Survey.find(:survey_id)
+  @survey = Survey.find(params[:survey_id])
 
 
-
+  erb :survey
 end

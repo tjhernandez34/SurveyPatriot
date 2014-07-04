@@ -4,10 +4,10 @@
 
 <% @survey.questions.each do |question| %>
   <h2>
-    <%=question.question %>
+    <%= question.question %>
   </h2>
-  <% Choice.all.select { |choice| choice.question_id == question.id }.each do |choice| %>
-    <input type="radio" name="answer" value="<%=choice.choice%>"><%=choice.choice%>
+  <% @choices.select { |choice| choice.question_id == question.id }.each do |choice| %>
+    <input type="radio" name="answer" value="<%=choice.choice%>"><%= choice.choice%>
   <% end %>
 <% end %>
 

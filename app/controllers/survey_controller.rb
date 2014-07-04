@@ -1,9 +1,9 @@
-before '/surveys' do
-  # cehck if logged in, or else redirect home
+before '/surveys/*' do
+  @choices = Choice.all
+  @surveys = Survey.all
 end
 
 get '/surveys' do
-  @surveys = Survey.all
   erb :surveys
 end
 

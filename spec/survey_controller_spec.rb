@@ -14,14 +14,14 @@ describe 'SurveyController' do
     end
 
     it 'displays each survey title' do
-      get '/'
+      get '/surveys'
       p survey.title
       expect(parsed_body.css('.survey-title')[0]).to eq("Chifago")
     end
 
     it 'displays all questions for each survey' do
       [question1, question2].each { |q| survey.questions << q }
-      get '/'
+      get '/surveys'
       p question1.question
       expect(parsed_body.css('.questions li')[0]).to eq("WTF?")
     end

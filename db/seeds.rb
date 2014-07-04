@@ -7,24 +7,21 @@
 end
 
 6.times do
-  Survey.create({
+  survey = Survey.create({
     title: Faker::Company.catch_phrase,
     user_id: rand(1..3)
     })
-end
-
-12.times do
-  Question.create({
-    question: Faker::Commerce.product_name + "?"
-    })
-end
-
-(1..12).each do |id_num|
   2.times do
-    Choice.create({
-      choice: Faker::Company.bs + "!",
-      question_id: id_num
+    question = Question.create({
+      question: Faker::Commerce.product_name + "?"
+    })
+    4.times do
+      choice = Choice.create({
+        choice: Faker::Company.bs + "!",
+        question_id: question.id
       })
+    end
+    survey.questions << question
   end
 end
 

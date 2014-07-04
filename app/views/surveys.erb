@@ -1,4 +1,6 @@
 <h1>All surveys:</h1>
-<% @surveys.each do |survey| %>
-<a href=/surveys/<%= survey.id %>><%= survey.title %></a><br>
-<% end %>
+<section class="surveys">
+  <% @surveys.each do |survey| %>
+    <a class="survey-title" href=/surveys/<%= survey.id %>><%= survey.title %></a>
+  <% end %>
+</section>

@@ -2,28 +2,28 @@ get '/' do
   erb :index
 end
 
-post '/' do
+post '/login' do
   @user = User.find_by("email = ?", params[:email])
   if @user.password == params[:password]
     session[:id] = @user.id
-    redirect to "/user/#{@user.id}"
+    redirect "/user/#{@user.id}"
   else
-    redirect to '/register'
+    redirect '/signup'
   end
 end
 
-post '/register' do
+post '/signup' do
   @user = User.new(name: params[:name], email: params[:email])
   @user.password = params[:password]
   @user.save!
-  redirect to "/user/#{@user.id}"
+  redirect "/user/#{@user.id}"
 end
 
-get '/register' do
-  erb :register
+get '/signup' do
+  erb :signup
 end
 
-post '/logout' do
-  session[:id] = nil
-  redirect to '/'
+get '/logout' do
+  session.destroy
+  redirect '/'
 end

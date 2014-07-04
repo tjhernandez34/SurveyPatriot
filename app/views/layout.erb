@@ -18,14 +18,16 @@
   <title></title>
 </head>
 <body>
-
-  <form action="/logout" method = 'post'>
-    <input type="submit" value="LOGOUT">
-  </form>
-
-  <form action="/">
-    <input type="submit" value = "HOME">
-  </form>
+  <header>
+    <ul class="nav">
+      <li>
+        <a class="btn" href="/">home</a>
+      </li>
+      <li>
+        <a class="btn" href="/logout">log out</a>
+      </li>
+    </ul>
+  </header>
 
   <%= yield %>
 </body>

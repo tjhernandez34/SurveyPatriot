@@ -1,4 +1,4 @@
-<h1><%=@survey.title%></h1>
+<h1 class="survey-title"><%= @survey.title %></h1>
 <div id = 'question'>
 <%@survey.questions.each do |question| %>
     <h2><%=question.question %></h2>

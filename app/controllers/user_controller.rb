@@ -2,7 +2,7 @@ before '/users/*' do
   @user = User.find(params[:user_id])
   redirect '/' unless @user.logged_in?(session)
   @choices = Choice.all
-  @questions = @survey.questions
+  @questions = @survey.questions if @survey
 end
 
 get '/users/:user_id' do

@@ -1,5 +1,7 @@
 require 'spec_helper'
 
+system 'clear'
+
 describe 'IndexController' do
   describe "get '/'" do
     it 'renders the index template' do

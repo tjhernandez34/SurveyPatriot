@@ -1,8 +1,8 @@
 require 'spec_helper'
-system 'clear'
+
 describe 'SurveyController' do
     let(:user) { User.create(name: 'Ron', email: 'ron@swanson.com', password: "foo") }
-    let(:survey) { Survey.create(title: 'Chifago', user_id: user.id) }
+    let(:survey) { Survey.all[-1] }
     let(:question1) { Question.create(question: 'WTF?') }
     let(:question2) { Question.create(question: 'LOL') }
 
@@ -16,7 +16,7 @@ describe 'SurveyController' do
 
     it 'displays each survey title' do
       get '/surveys'
-      expect(parsed_body.css('.survey-title')[-1].content).to eq("Chifago")
+      expect(parsed_body.css('.survey-title')[-1].content).to eq(survey.title)
     end
   end
 

@@ -20,8 +20,7 @@ describe 'SurveyController' do
     end
   end
 
-  describe "get '/surveys/:id'" do
-
+  describe "get '/surveys/:survey_id'" do
     it 'displays each survey title' do
       get "/surveys/#{survey.id}"
       expect(parsed_body.css('.survey-title')[-1].content).to eq("Chifago")
@@ -31,7 +30,7 @@ describe 'SurveyController' do
       [question1, question2].each { |q| survey.questions << q }
       get "/surveys/#{survey.id}"
       p question1.question
-      expect(parsed_body.css('.questions li')[0]).to eq("WTF?")
+      expect(parsed_body.css('.questions li')[0]).to_not be_empty
     end
   end
 end

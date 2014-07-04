@@ -7,4 +7,8 @@ describe 'IndexController' do
       expect(parsed_body.css('.login-form')).to_not be_empty
     end
   end
+
+  describe "post '/login'" do
+    it ''
+  end
 end

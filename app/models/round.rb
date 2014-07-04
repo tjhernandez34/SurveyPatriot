@@ -1,3 +1,5 @@
 class Round < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to                :user
+  belongs_to                :survey
+  has_and_belongs_to_many   :choices
 end

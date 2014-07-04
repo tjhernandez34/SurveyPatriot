@@ -29,5 +29,15 @@ class CreateSchema < ActiveRecord::Migration
       t.integer     :survey_id
       t.timestamps
     end
+
+    create_table :questions_surveys do |t|
+      t.belongs_to    :survey
+      t.belongs_to    :question
+    end
+
+    create_table :choices_rounds do |t|
+      t.belongs_to    :round
+      t.belongs_to    :choice
+    end
   end
 end

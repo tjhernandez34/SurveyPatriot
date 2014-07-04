@@ -12,4 +12,18 @@ class Survey < ActiveRecord::Base
     self.questions << question
     end
   end
+
+  def results
+    data.each do |choice|
+
+    end
+  end
+
+  def data
+    raw_data = []
+    rounds.each do |round|
+      round.choices.each { |choice| raw_data << choice }
+    end
+    raw_data.flatten.sort
+  end
 end

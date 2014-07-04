@@ -1,3 +1,8 @@
 <section>
-
+  <ul>
+    <% @surveys.each do |survey| %>
+    <li>
+      <h3><%= survey.title %></h3>
+    </li>
+  </ul>
 </section>

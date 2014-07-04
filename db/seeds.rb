@@ -1,4 +1,4 @@
-3.times do
+30.times do
   User.create({
     name: Faker::Name.name,
     email: Faker::Internet.email,
@@ -25,9 +25,17 @@ end
   end
 end
 
-# User.all.each do |user|
-#   Round.create({
-#     user_id: user.id,
-#     survey_id: rand(1..6)
-#     })
-# end
+User.all.each do |user|
+  Round.create({
+    user_id: user.id,
+    survey_id: rand(1..6)
+    })
+end
+
+8.times do
+  choices = Choice.all
+  round = Round.create(survey_id: 1, user_id: rand(1..30))
+  round.survey.questions.each do |question|
+    round.choices << choices.select { |choice| choice.question_id == question.id }.sample
+  end
+end

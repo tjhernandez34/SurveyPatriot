@@ -16,22 +16,15 @@ get '/users/:user_id/surveys' do
 end
 
 post '/users/:user_id/surveys/create' do
-
   @survey = Survey.create(params[:survey])
-
-  questions = [ question1=Question.create(params[:question1]),
-                question2=Question.create(params[:question2]),
-                question3=Question.create(params[:question3]) ]
-
+  questions = []
+  params[:questions].each { |q| questions << Question.create(q) }
   @survey.load(questions, params)
-
   redirect to "/surveys/#{@survey.id}"
 end
 
 get '/users/:user_id/surveys/:survey_id/confirm' do
   @survey = Survey.find(params[:survey_id])
-
-
   erb :survey
 end
 

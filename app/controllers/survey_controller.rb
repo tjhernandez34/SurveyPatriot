@@ -27,9 +27,10 @@ post '/surveys/create' do
   redirect to "/surveys/#{@survey.id}"
 end
 
-get '/surveys/:survey_id' do
+get '/surveys/:survey_id/confirm' do
   @survey = Survey.find(params[:survey_id])
-
+  @questions = @survey.questions
+  @choices = Choice.all
 
   erb :survey
 end

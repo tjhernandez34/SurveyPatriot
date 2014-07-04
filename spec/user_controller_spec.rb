@@ -1,5 +1,5 @@
 require 'spec_helper'
 
-describe "Associations" do
+describe UserController do
   pending "add some examples to (or delete) /Users/apprentice/survey-gorilla/Rakefile"
 end

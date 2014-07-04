@@ -25,10 +25,3 @@ post '/surveys/:survey_id' do
   @round.save!
   halt 200
 end
-
-get '/surveys/:survey_id/confirm' do
-  @survey = Survey.find(params[:survey_id])
-  @questions = @survey.questions
-  @choices = Choice.all
-  erb :survey
-end

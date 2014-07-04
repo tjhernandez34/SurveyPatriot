@@ -85,7 +85,7 @@ end
 
 namespace :db do
   desc "YOLO BITCHHHHH"
-  task :yolo
+  task :yolo do
     puts "Dropping development and test databases..."
     system("dropdb #{APP_NAME}_development && dropdb #{APP_NAME}_test")
     puts "Creating development and test databases if they don't exist..."

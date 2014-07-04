@@ -15,14 +15,13 @@ end
     question = Question.create({
       question: Faker::Commerce.product_name + "?"
     })
-    survey.questions << question
     4.times do
       choice = Choice.create({
         choice: Faker::Company.bs + "!",
         question_id: question.id
       })
-      question.choices << choice
     end
+    survey.questions << question
   end
 end
 

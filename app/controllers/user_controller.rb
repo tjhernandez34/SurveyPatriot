@@ -2,7 +2,7 @@ before '/users/*' do
   @user = User.find(params[:user_id])
   redirect '/' unless @user.logged_in?(session)
   @choices = Choice.all
-  @questions = @survey.questions if @survey
+  @questions = @survey.questions
 end
 
 get '/users/:user_id' do
@@ -12,8 +12,7 @@ end
 
 get '/users/:user_id/surveys' do
   @surveys = Survey.find_by_user_id(params[:user_id])
-
-  erb :user_surveys
+  erb :"users/surveys"
 end
 
 post '/users/:user_id/surveys/create' do

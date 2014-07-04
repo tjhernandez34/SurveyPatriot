@@ -10,4 +10,8 @@ describe 'UserController' do
       expect(parsed_body.css('.welcome')[0].content).to include user.name
     end
   end
+
+  describe "get '/users/:user_id/surveys'" do
+    it 'shows '
+  end
 end

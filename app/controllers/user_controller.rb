@@ -1,4 +1,4 @@
-before '/users/*' do
+before '/users/:user_id/*' do
   @user = User.find(params[:user_id])
   redirect '/' unless @user.logged_in?(session)
   @choices = Choice.all
@@ -6,6 +6,7 @@ before '/users/*' do
 end
 
 get '/users/:user_id' do
+  @user = User.find(params[:user_id])
   erb :profile
 end
 

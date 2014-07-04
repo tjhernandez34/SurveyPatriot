@@ -84,8 +84,17 @@ namespace :generate do
 end
 
 namespace :db do
-  desc "YOLO BITCHHHHH"
-  task :yolo do
+  desc "Drop, create, and migrate the database"
+  task :yolo => [:drop, :create, :migrate, :seed]
+
+  desc "Create the databases at #{DB_NAME}"
+  task :create do
+    puts "Creating development and test databases if they don't exist..."
+    system("createdb #{APP_NAME}_development && createdb #{APP_NAME}_test")
+  end
+
+  desc "Drop the database at #{DB_NAME}"
+  task :drop do
     puts "Dropping development and test databases..."
     system("dropdb #{APP_NAME}_development && dropdb #{APP_NAME}_test")
     puts "Creating development and test databases if they don't exist..."

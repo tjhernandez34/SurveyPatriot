@@ -1,0 +1,18 @@
+<h1>This is the survey you created</h1>
+<br>
+<h2><%= @survey.title %></h2>
+
+<ul>
+	<% @questions.each do |question| %>
+		<% test = @choices.select { |choice|
+			choice.question_id = question.id} %>
+
+		<li><%= question.question %></li>
+			<ul>
+			<% test.each do |choice| %>
+  				<li><%= choice.choice %></li>
+  		</ul>
+  		<% end %>
+  	</li>
+	<% end %>
+</ul>

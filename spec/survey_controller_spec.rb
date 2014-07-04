@@ -29,8 +29,7 @@ describe 'SurveyController' do
     it 'displays all questions for each survey' do
       [question1, question2].each { |q| survey.questions << q }
       get "/surveys/#{survey.id}"
-      p question1.question
-      expect(parsed_body.css('.questions li')[0]).to_not be_empty
+      expect(parsed_body.css('.questions li')).to_not be_empty
     end
   end
 end

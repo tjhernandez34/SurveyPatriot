@@ -1,6 +1,7 @@
 <h1 class="survey-title"><%= @survey.title %></h1>
-<div id = 'question'>
+<ul class='questions'>
 <%@survey.questions.each do |question| %>
+    <li>
     <h2><%=question.question %></h2>
     <form action = '/surveys/<%=@survey.id%>' method = "post">
     <%Choice.all.select { |choice| choice.question_id == question.id }.each do |choice|%>
@@ -8,5 +9,6 @@
       <% end %>
       <input id = "submit_answer" type="submit" value="Next Question"/>
     </form>
+  </li>
 <% end %>
-</div>
+</ul>

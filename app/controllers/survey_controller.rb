@@ -8,6 +8,7 @@ get '/surveys' do
 end
 
 post '/surveys/create' do
+
   @survey = Survey.create(params[:survey])
 
   question1=Question.create(params[:question1])
@@ -25,11 +26,10 @@ post '/surveys/create' do
   end
 
 redirect to "/surveys/#{@survey.id}"
+
 end
 
 get '/surveys/:survey_id' do
-@survey = Survey.find(:survey_id)
-
-
-
+  @survey = Survey.find(params[:survey_id])
+  erb :single_survey
 end

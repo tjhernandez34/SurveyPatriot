@@ -13,7 +13,7 @@ get '/users/:user_id/surveys' do
   @user = User.find(params[:user_id])
   @surveys = Survey.find_by_user_id(params[:user_id])
 
-  erb :UNKNOWN
+  erb :user_surveys
 end
 
 

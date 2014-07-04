@@ -1,0 +1,32 @@
+<div class="container">
+<h1>Edit Survey</h1>
+<br>
+<form id="edit_survey" method="post" action="/surveys/<%="#{@survey.id}"%>/edit">
+
+<label class="label" for="title">Title</label>
+    <input type="text" name="title" placeholder=<%=@survey.title %>>
+    <br>
+<ul>
+<% num = 1 %>
+<% counter = 1 %>
+<% @questions.each do |question| %>
+<li><label class="label" for="question">Question</label>
+   <input type="text" name="question<%="#{num}"%>" placeholder=<%=question.question %>></li>
+   <% num += 1 %>
+   <br>
+<% @choices.select { |choice| choice.question_id == question.id}.each do |choice| %>
+<ul>
+  <li><label class="label" for="choice">Choice <%="#{counter}"%></label>
+    <input type="text" name="choice<%="#{counter}"%>" placeholder=<%=choice.choice %>></li>
+    <% counter += 1 %>
+    <br>
+  </ul>
+  <% end %>
+ </li>
+<% end %>
+</ul>
+
+    <div class="submit"><input type="submit" value="Update"></div>
+  </form>
+
+</div>

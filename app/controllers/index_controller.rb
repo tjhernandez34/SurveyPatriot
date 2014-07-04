@@ -16,6 +16,7 @@ post '/signup' do
   @user = User.new(name: params[:name], email: params[:email])
   @user.password = params[:password]
   @user.save!
+  session[:id] = @user.id
   redirect "/users/#{@user.id}"
 end
 

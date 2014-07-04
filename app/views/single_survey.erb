@@ -1,13 +1,12 @@
 <h1><%=@survey.title%></h1>
-
+<div id = 'question'>
 <%@survey.questions.each do |question| %>
-  <h2><%=question.question %></h2>
+    <h2><%=question.question %></h2>
+    <form action = '/surveys/<%=@survey.id%>' method = "post">
     <%Choice.all.select { |choice| choice.question_id == question.id }.each do |choice|%>
-        <input type="radio" name="answer" value="<%=choice.choice%>"><%=choice.choice%><br>
+        <input type="radio" name="answer" value="<%=choice.id%>"><%=choice.choice%><br>
       <% end %>
+      <input id = "submit_answer" type="submit" value="Next Question"/>
+    </form>
 <% end %>
-
-
-
-
-
+</div>

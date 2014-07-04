@@ -25,9 +25,9 @@ end
   end
 end
 
-User.all.each do |user|
-  Round.create({
-    user_id: user.id,
-    survey_id: rand(1..6)
-    })
-end
+# User.all.each do |user|
+#   Round.create({
+#     user_id: user.id,
+#     survey_id: rand(1..6)
+#     })
+# end

@@ -1,6 +1,6 @@
-<h1 class="welcome">Welcome<%= @user.name %></h1>
+<h1 class="welcome">Welcome <%= @user.name.capitalize %></h1>
 <ul>
-  <li><a class="btn" href="/users/<%= @user.id%>/surveys/create">Create</a></li>
-  <li><a class="btn" href="/users/<%= @user.id%>/surveys">View</a></li>
-  <li><a class="btn" href="/surveys">Take</a></li>
+  <li><a class="btn" href="/users/<%= @user.id%>/surveys/create">Create a new survey</a></li>
+  <li><a class="btn" href="/users/<%= @user.id%>/surveys">View surveys I've taken</a></li>
+  <li><a class="btn" href="/surveys">Take a new survey</a></li>
 </ul>

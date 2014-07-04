@@ -1,30 +1,54 @@
-get '/users/:id' do
-  @user = User.find(params[:id])
+before '/users/*' do
+  @user = User.find(params[:user_id])
+  redirect '/' unless @user.logged_in?(session)
+  @choices = Choice.all
+  @questions = @survey.questions
+end
+
+get '/users/:user_id' do
   erb :profile
 end
 
-get '/users/:user_id/surveys/create' do
-  @user = User.find(params[:user_id])
-
-  erb :UNKNOWN
-end
-
 get '/users/:user_id/surveys' do
-  @user = User.find(params[:user_id])
   @surveys = Survey.find_by_user_id(params[:user_id])
 
   erb :user_surveys
 end
 
+post '/users/:user_id/surveys/create' do
 
-post '' do
+  @survey = Survey.create(params[:survey])
+
+  questions = [ question1=Question.create(params[:question1]),
+                question2=Question.create(params[:question2]),
+                question3=Question.create(params[:question3]) ]
+
+  @survey.load(questions, params)
+
+  redirect to "/surveys/#{@survey.id}"
 end
 
-post '' do
+get '/users/:user_id/surveys/:survey_id/confirm' do
+  @survey = Survey.find(params[:survey_id])
+
+
+  erb :survey
 end
 
-post '' do
-end
+post '/users/:user_id/surveys/:survey_id/edit' do
+  @survey = Survey.find(params[:survey_id])
+  @survey.update(title: params[:title])
 
-post '' do
+  num = 1
+  counter = 1
+  @questions.each do |question|
+
+    question.update(question: params["question#{num}".to_sym])
+      @choices.select { |choice| choice.question_id == question.id}.each do |choice|
+        choice.update(choice: params["choice#{counter}".to_sym])
+          counter += 1
+      end
+    num += 1
+  end
+  redirect to "/surveys/#{@survey.id}"
 end

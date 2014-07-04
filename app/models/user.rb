@@ -14,4 +14,7 @@ class User < ActiveRecord::Base
     self.password_hash = @password
   end
 
+  def logged_in?(session)
+    session[:id] == id
+  end
 end

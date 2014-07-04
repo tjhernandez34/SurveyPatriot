@@ -1,5 +1,9 @@
 require 'spec_helper'
 
 describe UserController do
-  pending "add some examples to (or delete) /Users/apprentice/survey-gorilla/Rakefile"
+  describe "get '/users/:id'" do
+    it 'renders the profile template' do
+
+    end
+  end
 end

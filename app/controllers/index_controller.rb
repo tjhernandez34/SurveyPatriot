@@ -6,7 +6,7 @@ post '/login' do
   @user = User.find_by("email = ?", params[:email])
   if @user.password == params[:password]
     session[:id] = @user.id
-    redirect "/user/#{@user.id}"
+    redirect "/users/#{@user.id}"
   else
     redirect '/signup'
   end
@@ -16,7 +16,7 @@ post '/signup' do
   @user = User.new(name: params[:name], email: params[:email])
   @user.password = params[:password]
   @user.save!
-  redirect "/user/#{@user.id}"
+  redirect "/users/#{@user.id}"
 end
 
 get '/signup' do

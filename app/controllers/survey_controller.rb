@@ -1,3 +1,8 @@
+before '/surveys' do
+  @choices = Choice.all
+  @surveys = Survey.all
+end
+
 before '/surveys/*' do
   @choices = Choice.all
   @surveys = Survey.all

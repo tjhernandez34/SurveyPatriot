@@ -34,24 +34,3 @@ get '/surveys/:survey_id' do
 
 
 end
-
-
-
-
-
-
-
-
-
-
-
-end
-
-# params
-# { survey: {
-#   title: survey[title],
-#   question1: {
-
-#   }
-#   }
-# }

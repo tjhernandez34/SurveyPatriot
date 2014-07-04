@@ -21,9 +21,9 @@ describe 'SurveyController' do
   end
 
   describe "get '/surveys/:survey_id'" do
-    it 'displays each survey title' do
+    it 'displays the survey title' do
       get "/surveys/#{survey.id}"
-      expect(parsed_body.css('.survey-title')[-1].content).to eq("Chifago")
+      expect(parsed_body.css('.survey-title')[-1].content).to eq(survey.title)
     end
 
     it 'displays all questions for each survey' do

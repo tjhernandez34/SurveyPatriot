@@ -7,7 +7,7 @@ class Survey < ActiveRecord::Base
     questions.each_with_index do |question, index|
       Choice.create({
         question_id: question.id,
-        choice: params["choice#{index + 1}".to_sym]
+        choice: params["choice_#{index + 1}".to_sym]
         })
     self.questions << question
     end

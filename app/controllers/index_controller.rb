@@ -3,7 +3,7 @@ get '/' do
 end
 
 post '/login' do
-  @user = User.find_by("email = ?", params[:email])
+  @user = User.find_by_email(params[:email])
   redirect '/signup' unless @user
 
   @user.password == params[:password]
@@ -12,15 +12,13 @@ post '/login' do
 end
 
 post '/signup' do
-  @user = User.new(name: params[:name], email: params[:email])
-  @user.password = params[:password]
-  @user.save!
+  @user = User.create(params[:user])
   session[:id] = @user.id
   redirect "/users/#{@user.id}"
 end
 
 get '/signup' do
-  erb :signup
+  erb :"users/signup"
 end
 
 get '/logout' do

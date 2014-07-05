@@ -22,4 +22,32 @@ describe 'UserController' do
       expect(parsed_body.css('.surveys li h3')).to_not be_empty
     end
   end
+
+  describe "post '/users/:user_id/surveys/create'" do
+    it 'creates a new Survey' do
+      session[:id] = user.id
+      pre_count = Survey.all.count
+      post "/users/#{user.id}/surveys/create", { 
+        user_id: user.id,
+        survey: {
+          title: 'survey'
+        },
+        questions: { 
+          question1: {
+            question: 'foo'
+            },
+          question2: {
+            question: 'bar'
+          },
+          question3: {
+            question: 'Chi'
+          },
+          question4: {
+            question: 'fogo'
+          }
+        }
+      }
+      expect(Survey.all.count).to eq(pre_count + 1)
+    end
+  end
 end

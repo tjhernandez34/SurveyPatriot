@@ -7,7 +7,7 @@ describe User do
       session[:id] = user.id
       get "/users/#{user.id}", { user_id: user.id }
       expect(last_response).to be_ok
-      get "/users/#{user.id}", { user_id: user.id + 1 }
+      get "/users/#{user.id + 1}", { user_id: user.id }
       expect(last_response).to be_redirect
     end
   end

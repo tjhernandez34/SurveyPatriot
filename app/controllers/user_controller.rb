@@ -1,4 +1,4 @@
-before '/users/*' do
+before '/users/:user_id/*' do
   @user = User.find(params[:user_id])
   redirect '/' unless @user.logged_in?(session)
   @choices = Choice.all
@@ -6,6 +6,7 @@ end
 
 get '/users/:user_id' do
   @user = User.find(params[:user_id])
+  redirect '/' unless @user.logged_in?(session)
   erb :"users/profile"
 end
 
@@ -14,10 +15,14 @@ get '/users/:user_id/surveys' do
   erb :"users/surveys"
 end
 
+get '/users/:user_id/surveys/create' do
+  erb :"surveys/_create_survey_form"
+end
+
 post '/users/:user_id/surveys/create' do
   @survey = Survey.create(params[:survey])
   questions = []
-  params[:questions].each { |q| questions << Question.create(q) }
+  params[:questions].each { |q| questions << Question.create(q[1]) }
   @survey.load(questions, params)
   redirect to "/surveys/#{@survey.id}"
 end

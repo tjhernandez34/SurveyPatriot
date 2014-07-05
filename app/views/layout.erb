@@ -15,19 +15,10 @@
 
   <section class="msg">
     <div class="modal login-form-modal hidden">
-      <ul>
-      <form action="/login" method="post">
-        <li>
-          <input class="form-field" type="text" name="user[email]" placeholder="your email" autofocus>
-        </li>
-        <li>
-          <input class="form-field" type="password" name="user[password]" placeholder="your password">
-        </li>
-        <li>
-          <input class="form-field login-btn btn btn-primary" type="submit" value="log in">
-        </li>
-      </form>
-      </ul>
+      <%= erb :"users/_signin_form", locals: { action: 'login' } %>
+    </div>
+    <div class="modal signup-form-modal hidden">
+      <%= erb :"users/_signin_form", locals: { action: 'signup' } %>
     </div>
   </section>
 

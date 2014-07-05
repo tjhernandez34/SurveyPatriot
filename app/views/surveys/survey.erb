@@ -1,14 +1,20 @@
-<h1 class="survey-title"><%= @survey.title %></h1>
-<ul class='questions'>
+<h1 class="survey-title"><%=@survey.title%></h1>
+<a href=#  id = 'start_survey'>Start Survey!</a>
+
+<form action = '/surveys/<%=@survey.id%>' method = "post">
 <%@survey.questions.each do |question| %>
-   <li>
-    <h2><%=question.question %></h2>
-    <form action = '/surveys/<%=@survey.id%>' method = "post">
-    <%Choice.all.select { |choice| choice.question_id == question.id }.each do |choice|%>
-        <input type="radio" name="answer" value="<%=choice.id%>"><%=choice.choice%><br>
+  <ul class='questions' id = 'question_<%=@counter%>'>
+    <li>
+      <h2><%=question.question %></h2>
+      <%@choices.select { |choice| choice.question_id == question.id }.each do |choice|%>
+          <input type="radio" name="answer[<%=@counter%>]" value="<%=choice.id%>"><%=choice.choice%><br>
       <% end %>
-      <input id = "submit_answer" type="submit" value="Next Question"/>
-    </form>
-  </li>
+      <p>You are at question <%=@counter%> of <%=@survey_length%>.</p>
+      <% @counter += 1 %>
+      <a href=# id = "next_question">Next Question</a>
+      <input id = "submit_answer" type="submit" value="Submit Answers"/>
+    </li>
+  </ul>
 <% end %>
-</ul>
+</form>
+

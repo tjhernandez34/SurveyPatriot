@@ -22,6 +22,6 @@ post '/surveys/:survey_id' do
   @round = Round.find(session[:round_id])
   @choice = Choice.find(params[:answer])
   @round.choices << @choice
-  @round.save!
+
   halt 200
 end

@@ -13,7 +13,7 @@ end
 
 
 
-survey.questions.each do |question|
-  array = []
-  survey.data.select { |choice| choice.}
-end
+# survey.questions.each do |question|
+#   array = []
+#   survey.data.select { |choice| choice }
+# end

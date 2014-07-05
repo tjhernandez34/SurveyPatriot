@@ -2,7 +2,6 @@ before '/users/*' do
   @user = User.find(params[:user_id])
   redirect '/' unless @user.logged_in?(session)
   @choices = Choice.all
-  @questions = @survey.questions
 end
 
 get '/users/:user_id' do
@@ -29,6 +28,7 @@ get '/users/:user_id/surveys/:survey_id/confirm' do
 end
 
 post '/users/:user_id/surveys/:survey_id/edit' do
+  @questions = @survey.questions
   @survey = Survey.find(params[:survey_id])
   @survey.update(title: params[:title])
 

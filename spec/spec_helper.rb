@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rack/test'
 require 'nokogiri'
+require 'bcrypt'
 
 # All our specs should require 'spec_helper' (this file)
 

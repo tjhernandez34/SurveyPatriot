@@ -10,9 +10,12 @@ describe 'IndexController' do
     end
   end
 
-  # describe "post '/login'" do
-    # it '' do
-
-    # end
-  # end
+  describe "post '/login'" do
+    it "redirects to '/signup' if user does not exist" do
+      post '/login', { user: { email: 'qwertyuiop@werty.com', password: 'foo'} }
+      expect(last_response).to be_redirect
+      follow_redirect!
+      expect(last_request.path_info).to eq '/signup'
+    end
+  end
 end

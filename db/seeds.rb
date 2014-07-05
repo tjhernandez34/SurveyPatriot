@@ -1,15 +1,17 @@
-30.times do
-  User.create({
-    name: Faker::Name.name,
-    email: Faker::Internet.email,
-    password_hash: 'foo'
-    })
-end
+
+
+# 30.times do
+#   User.create({
+#     name: Faker::Name.name,
+#     email: Faker::Internet.email,
+#     password_hash: 'foo'
+#     })
+# end
 
 6.times do
   survey = Survey.create({
     title: Faker::Company.catch_phrase,
-    user_id: rand(1..3)
+    user_id: 1
     })
   2.times do
     question = Question.create({

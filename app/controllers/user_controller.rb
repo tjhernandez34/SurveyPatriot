@@ -21,21 +21,12 @@ get '/users/:user_id/surveys/create' do
 end
 
 post '/users/:user_id/surveys/create' do
-  survey = Survey.create(params[:survey])
+  survey = Survey.create(title: params[:survey][:title], user_id: params[:user_id])
   questions = []
   params[:questions].each { |q| questions << Question.create(q[1]) }
   survey.load(questions, params)
   redirect to "/surveys/#{survey.id}"
 end
-
-
-# post '/users/:user_id/surveys/create' do
-#   survey = Survey.create(params[:survey])
-#   questions = []
-#   params[:questions].each { |q| questions << Question.create(q[1]) }
-#   survey.load(questions, params)
-#   redirect to "/surveys/#{survey.id}"
-# end
 
 # get '/users/:user_id/surveys/:survey_id/confirm' do
 #   @survey = Survey.find(params[:survey_id])
@@ -48,4 +39,11 @@ post '/users/:user_id/surveys/:survey_id/edit' do
   @questions = @survey.questions
   @survey.edit(params)
   redirect to "/surveys/#{@survey.id}"
+end
+
+get '/users/:user_id/surveys/:survey_id/results' do
+  @survey = Survey.find(params[:survey_id])
+  # @choices = @survey.data
+
+  erb :"surveys/results"
 end

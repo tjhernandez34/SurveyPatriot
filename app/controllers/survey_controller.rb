@@ -23,6 +23,7 @@ end
 
 post '/surveys/:survey_id' do
   @round = Round.find(session[:round_id])
+  p params[:answer]
   params[:answer].each_value do |choice_id|
     @choice = Choice.find(choice_id)
     @round.choices << @choice
@@ -30,3 +31,4 @@ post '/surveys/:survey_id' do
   @round.save!
   redirect to "/users/#{session[:id]}"
 end
+

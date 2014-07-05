@@ -40,7 +40,7 @@ describe 'SurveyController' do
       current_round = survey.rounds.last
       current_round_choice_count = current_round.choices.count
       session[:round_id] = current_round.id
-      post "/surveys/#{survey.id}", { answer: Choice.all[0].id }
+      post "/surveys/#{survey.id}", { answer: { "1" => Choice.all[0].id } }
       expect(current_round.choices.count).to eq(current_round_choice_count + 1)
     end
   end

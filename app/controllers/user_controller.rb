@@ -20,11 +20,11 @@ get '/users/:user_id/surveys/create' do
 end
 
 post '/users/:user_id/surveys/create' do
-  @survey = Survey.create(params[:survey])
+  survey = Survey.create(params[:survey])
   questions = []
   params[:questions].each { |q| questions << Question.create(q[1]) }
-  @survey.load(questions, params)
-  redirect to "/surveys/#{@survey.id}"
+  survey.load(questions, params)
+  redirect to "/surveys/#{survey.id}"
 end
 
 get '/users/:user_id/surveys/:survey_id/confirm' do
@@ -36,17 +36,13 @@ post '/users/:user_id/surveys/:survey_id/edit' do
   @questions = @survey.questions
   @survey = Survey.find(params[:survey_id])
   @survey.update(title: params[:title])
-
-  num = 1
-  counter = 1
-  @questions.each do |question|
-
-    question.update(question: params["question#{num}".to_sym])
-      @choices.select { |choice| choice.question_id == question.id}.each do |choice|
-        choice.update(choice: params["choice#{counter}".to_sym])
-          counter += 1
-      end
-    num += 1
+  @questions.each_with_index do |question, index|
+    question.update(question: params[:questions]["question_#{index + 1}".to_sym])
+    choice_num = 1
+    @choices.select { |choice| choice.question_id == question.id}.each do |choice|
+      choice.update(choice: params["choice_#{choice_num}".to_sym])
+      choice_num += 1
+    end
   end
   redirect to "/surveys/#{@survey.id}"
 end

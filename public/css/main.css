@@ -10,7 +10,12 @@ Header =========================================================================
 
 header {
   background-color: #152040;
-  text-align: right;
+}
+
+@media (min-width: 768px) {
+  header {
+    text-align: right;
+  }
 }
 
 .nav {
@@ -19,6 +24,39 @@ header {
 
 .nav li {
   display: inline-block;
+}
+
+
+/*
+Forms ======================================================================================================================================================
+*/
+
+.modal form {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+
+.form-field {
+  padding: .5em;
+  margin: 1em;
+  border-radius: .5em;
+  border: none;
+  color: #152040;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: inherit;
+}
+
+.form-field:hover,
+.form-field:focus,
+.form-field:active {
+  outline: none;
+  border: none;
+}
+
+.login-btn {
+  width: inherit;
 }
 
 /*
@@ -31,32 +69,18 @@ Links ==========================================================================
   color: #eee;
 }
 
+.btn:hover,
+.btn:focus,
+.btn:active {
+  border: 2px solid #eee;
+}
+
 .btn-primary {
   background-color: #3E5FBF;
   border: 2px solid #293F7F;
 }
 
 .btn-secondary {
-  background-color: #3E5FBF;
-}
-
-/*
-Forms ======================================================================================================================================================
-*/
-
-.form-field {
-  text-align: left;
-  border-radius: .5em;
-  border: none;
-  color: #152040;
-  text-align: center;
-  font-size: inherit;
-  font-family: inherit;
-}
-
-.form-field:hover,
-.form-field:focus,
-.form-field:active {
-  outline: none;
-  border: none;
+  background-color: #FF4540;
+  border: 2px solid #FF2320;
 }

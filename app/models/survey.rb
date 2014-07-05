@@ -1,4 +1,6 @@
 class Survey < ActiveRecord::Base
+  validates_presence_of :title, :user_id
+
   belongs_to              :user
   has_and_belongs_to_many :questions
   has_many                :rounds

@@ -1,6 +1,7 @@
-require 'bcrypt'
-
 class User < ActiveRecord::Base
+  validates_presence_of :name, :email, :password_hash
+  validates_uniqueness_of :email
+
   include BCrypt
   has_many        :surveys
   has_many        :rounds

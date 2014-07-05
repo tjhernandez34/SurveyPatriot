@@ -18,4 +18,5 @@ class User < ActiveRecord::Base
   def logged_in?(session)
     session[:id] == id
   end
+  
 end

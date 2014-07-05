@@ -1,9 +1,17 @@
+before '/*' do
+  @logged_in = session[:id]
+end
+
 get '/' do
   erb :index
 end
 
 post '/login' do
-  @user = User.find_by_email(params[:user][:email])
+  p params[:user][:email]
+  @user = User.find_by_email(params['user']['email'])
+  unless @user
+    halt 400, 'looks like you need to create an account'
+  end
   redirect '/signup' unless @user
   @user.password == params[:user][:password]
   session[:id] = @user.id

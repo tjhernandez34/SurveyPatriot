@@ -1,0 +1,18 @@
+<ul>
+  <form class="<%= action %>-form" action="/<%= action %>" method="post">
+    <li>
+      <input class="form-field user-email" type="text" name="user[email]" placeholder="your email" autofocus>
+    </li>
+    <% if action == 'signup' %>
+    <li>
+      <input class="form-field user-name" type="text" name="user[name]" placeholder="your name">
+    </li>
+    <% end %>
+    <li>
+      <input class="form-field user-password" type="password" name="user[password]" placeholder="your password">
+    </li>
+    <li>
+      <input class="form-field btn btn-<%= action == 'login' ? 'primary' : 'secondary' %>" type="submit" value="<%= action %>">
+    </li>
+  </form>
+</ul>

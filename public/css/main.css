@@ -84,3 +84,29 @@ Links ==========================================================================
   background-color: #FF4540;
   border: 2px solid #FF2320;
 }
+
+/*
+Messages ======================================================================================================================================================
+*/
+
+.msg {
+  width: 100%;
+  text-align: center;
+}
+
+.message-modal {
+  position: absolute;
+  background-image: url('/images/patriot.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.message {
+  position: relative;
+  top: 40%;
+  width: 50%;
+  padding: 1em;
+  margin: 0 auto;
+}

@@ -2,6 +2,7 @@
 <a href=#  id = 'start_survey'>Start Survey!</a>
 
 <form action = '/surveys/<%=@survey.id%>' method = "post">
+
 <%@survey.questions.each do |question| %>
   <ul class='questions' id = 'question_<%=@counter%>'>
     <li>
@@ -10,11 +11,11 @@
           <input type="radio" name="answer[<%=@counter%>]" value="<%=choice.id%>"><%=choice.choice%><br>
       <% end %>
       <p>You are at question <%=@counter%> of <%=@survey_length%>.</p>
-      <% @counter += 1 %>
       <a href=# id = "next_question">Next Question</a>
       <input id = "submit_answer" type="submit" value="Submit Answers"/>
     </li>
   </ul>
+  <% @counter += 1 %>
 <% end %>
-</form>
 
+</form>

@@ -1,12 +1,17 @@
 <form class="create-survey-form" action="/users/<%= @user.id %>/surveys/create" method="post">
-  <input name="survey[title]" type="text" placeholder="survey title" autofocus><br>
+  <input id = 'title' name="survey[title]" type="text" placeholder="survey title" autofocus><br>
+  <a href = # id = 'create_survey'>Start Creating Survey<a/>
 
   <% (1..4).each do |num| %>
+  <div class = 'input_questions' id = 'question_<%= num %>'>
   <input name="questions[question_<%= num %>][question]" type="text" placeholder = 'question_<%= num %>'><br>
+  </div>
     <% (1..4).each do |choice_num| %>
+  <div class = 'input_choices' id = 'choice_<%= num %><%= choice_num %>'>
       <input name="choice_<%= num %><%= choice_num %>" type="text" placeholder = "choice_<%= num %><%= choice_num %>"><br>
+  </div>
     <% end %>
   <% end %>
-
-  <input type="submit" value="submit">
+  <a href = # id = 'new_question'>Add another Question<a/>
+  <input id = 'finish_survey' type="submit" value="Finish Survey">
 </form>

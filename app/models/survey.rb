@@ -14,9 +14,7 @@ class Survey < ActiveRecord::Base
   end
 
   def results
-    data.each do |choice|
-
-    end
+    
   end
 
   def data

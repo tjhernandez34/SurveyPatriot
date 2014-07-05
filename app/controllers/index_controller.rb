@@ -11,9 +11,15 @@ post '/login' do
 end
 
 post '/signup' do
-  @user = User.create(params[:user])
-  session[:id] = @user.id
-  redirect "/users/#{@user.id}"
+  if User.find_by(email: params[:user][:email])
+    p params[:user][:email]
+    content_type 'application/json'
+    halt 200, {message: "Email already exists"}.to_json
+  else
+    @user = User.create(params[:user])
+    session[:id] = @user.id
+    redirect "/users/#{@user.id}"
+ end
 end
 
 get '/signup' do

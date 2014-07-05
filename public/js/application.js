@@ -14,26 +14,28 @@ var counter = 1
     $('#question_' + counter).show();
   });
 
-  // $('#posts').on('submit', function(event) {
-  //   console.log('User created...');
-  //   event.preventDefault();
-  //   postTitle = $('#new-title').val();
-  //   console.log(postTitle);
-  //   ajaxRequest = $.ajax({
-  //     url: "/signup",
-  //     type: 'POST',
-  //     data: {
-  //       error: message
-  //     },
-  //     success: function(data) {
-  //       $('.post-container').append(data['post']);
-  //       flashMessage(data['responseText']);
-  //     },
-  //     error: function(data) {
-  //       console.log(data);
-  //       flashMessage(data['responseText']);
-  //     }
-  //   })
-  // })
+  $('#the_submit').on('submit', function(event) {
+    event.preventDefault();
+    console.log('Email being verified...');
+    newEmail = $('#email').val();
+    console.log(newEmail);
+    ajaxRequest = $.ajax({
+      url: "/signup",
+      method: 'POST',
+      dataType: 'application/json',
+      data: {
+        user: {
+          email: newEmail 
+        }
+      },
+      success: function(data){
+        console.log("success");
+      },
+      error: function(data) {
+        console.log(data['responseText']);
+        alert(data['responseText']);  
+      }
+    });
+  });
 
 });

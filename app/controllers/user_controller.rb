@@ -16,6 +16,7 @@ get '/users/:user_id/surveys' do
 end
 
 get '/users/:user_id/surveys/create' do
+  @counter = 1
   erb :"surveys/_create_survey_form"
 end
 
@@ -26,6 +27,15 @@ post '/users/:user_id/surveys/create' do
   survey.load(questions, params)
   redirect to "/surveys/#{survey.id}"
 end
+
+
+# post '/users/:user_id/surveys/create' do
+#   survey = Survey.create(params[:survey])
+#   questions = []
+#   params[:questions].each { |q| questions << Question.create(q[1]) }
+#   survey.load(questions, params)
+#   redirect to "/surveys/#{survey.id}"
+# end
 
 # get '/users/:user_id/surveys/:survey_id/confirm' do
 #   @survey = Survey.find(params[:survey_id])

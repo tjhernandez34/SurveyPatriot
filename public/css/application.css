@@ -1,10 +1,9 @@
 .questions{
   border: dotted;
-  display: none;
+  /*display: none;*/
 }
 
 #submit_answers{
-  display: none;
- /* small change*/
+  /*display: none;*/
 }
 

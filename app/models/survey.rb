@@ -5,10 +5,12 @@ class Survey < ActiveRecord::Base
 
   def load(questions, params)
     questions.each_with_index do |question, index|
+      (1..4).each do |num|
       Choice.create({
         question_id: question.id,
-        choice: params["choice_#{index + 1}".to_sym]
+        choice: params["choice_#{index + 1}#{num}".to_sym]
         })
+    end
     self.questions << question
     end
   end

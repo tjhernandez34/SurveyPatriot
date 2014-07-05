@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="/css/main.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
-  <script src="/js/msg.js"></script>
+  <script src="/js/signin.js"></script>
 
   <title></title>
 </head>
@@ -29,13 +29,13 @@
         <a class="signup btn btn-header btn-secondary" href="/signup">sign up</a>
       </li>
       <% end %>
+      <% if @logged_in %>
       <li>
         <a class="btn" href="/">home</a>
       </li>
       <li>
         <a class="btn" href='/users/<%="#{session[:id]}"%>'>my profile</a>
       </li>
-      <% if @logged_in %>
       <li>
         <a class="btn btn-header btn-primary" href="/logout">log out</a>
       </li>

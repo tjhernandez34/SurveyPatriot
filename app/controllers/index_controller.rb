@@ -1,3 +1,7 @@
+before '/*' do
+  @logged_in = session[:id]
+end
+
 get '/' do
   erb :index
 end

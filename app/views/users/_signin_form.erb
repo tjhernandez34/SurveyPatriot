@@ -1,5 +1,5 @@
 <ul>
-  <form action="/<%= action %>" method="post">
+  <form class="<%= action %>-form" action="/<%= action %>" method="post">
     <li>
       <input class="form-field" type="text" name="user[email]" placeholder="your email" autofocus>
     </li>
@@ -12,7 +12,7 @@
       <input class="form-field" type="password" name="user[password]" placeholder="your password">
     </li>
     <li>
-      <input class="form-field <%= action %>-btn btn btn-<%= action == 'login' ? 'primary' : 'secondary' %>" type="submit" value="<%= action %>">
+      <input class="form-field btn btn-<%= action == 'login' ? 'primary' : 'secondary' %>" type="submit" value="<%= action %>">
     </li>
   </form>
 </ul>

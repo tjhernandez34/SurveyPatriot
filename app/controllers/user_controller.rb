@@ -1,6 +1,7 @@
 before '/users/:user_id/*' do
   @user = User.find(params[:user_id])
-  redirect '/' unless @user.logged_in?(session)
+  @logged_in = @user.logged_in?(session)
+  redirect '/' unless @logged_in
   @choices = Choice.all
 end
 

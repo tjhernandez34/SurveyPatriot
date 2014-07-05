@@ -1,0 +1,62 @@
+/*COLORS*/
+/*primary blue => #3E5FBF*/
+/*secondary red => #FF4540*/
+/*darker blue => #293F7F*/
+/*darkest blue => #152040*/
+/*light blue => #9CC8E5*/
+/*
+Header ======================================================================================================================================================
+*/
+
+header {
+  background-color: #152040;
+  text-align: right;
+}
+
+.nav {
+  padding: 5%;
+}
+
+.nav li {
+  display: inline-block;
+}
+
+/*
+Links ======================================================================================================================================================
+*/
+
+.btn {
+  padding: .5em 1em;
+  border-radius: .5em;
+  color: #eee;
+}
+
+.btn-primary {
+  background-color: #3E5FBF;
+  border: 2px solid #293F7F;
+}
+
+.btn-secondary {
+  background-color: #3E5FBF;
+}
+
+/*
+Forms ======================================================================================================================================================
+*/
+
+.form-field {
+  text-align: left;
+  border-radius: .5em;
+  border: none;
+  color: #152040;
+  text-align: center;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.form-field:hover,
+.form-field:focus,
+.form-field:active {
+  outline: none;
+  border: none;
+}

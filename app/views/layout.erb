@@ -1,17 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900|Raleway:400,700|Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
-
+  <link rel="stylesheet" href="/css/shoelace.css">
+  <link rel="stylesheet" href="/css/main.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
@@ -24,14 +17,29 @@
         <a class="btn" href="/">home</a>
       </li>
       <li>
-        <a class="btn" href='/users/<%="#{session[:id]}"%>'>My Profile</a>
+        <a class="btn" href='/users/<%="#{session[:id]}"%>'>my profile</a>
       </li>
+      <% if @logged_in %>
       <li>
-        <a class="btn" href="/logout">log out</a>
+        <a class="btn btn-header btn-primary" href="/logout">log out</a>
       </li>
+      <% else %>
+      <li>
+        <form class="login-form" action="/login" method="post">
+          <input class="form-field" type="text" name="user[email]" placeholder="your email" autofocus>
+          <input class="form-field" type="password" name="user[password]" placeholder="your password">
+          <input class="btn btn-header btn-primary" type="submit" value="log in">
+        </form>
+      </li>
+      <!-- <li>
+        <a class="btnbtn btn-header btn-primary" href="/signup">sign up</a>
+      </li> -->
+      <% end %>
     </ul>
   </header>
 
   <%= yield %>
 </body>
 </html>
+
+

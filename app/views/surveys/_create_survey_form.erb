@@ -1,4 +1,4 @@
-<form action="/users/<%= @user.id %>/surveys/create" method="post">
+<form class="create-survey-form" action="/users/<%= @user.id %>/surveys/create" method="post">
   <input name="survey[title]" type="text" placeholder="survey title" autofocus>
 
   <% (1..4).each do |num| %>

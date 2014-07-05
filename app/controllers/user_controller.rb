@@ -27,22 +27,15 @@ post '/users/:user_id/surveys/create' do
   redirect to "/surveys/#{survey.id}"
 end
 
-get '/users/:user_id/surveys/:survey_id/confirm' do
-  @survey = Survey.find(params[:survey_id])
-  erb :"surveys/survey"
-end
+# get '/users/:user_id/surveys/:survey_id/confirm' do
+#   @survey = Survey.find(params[:survey_id])
+#   erb :"surveys/survey"
+# end
 
+# =================TEST========================
 post '/users/:user_id/surveys/:survey_id/edit' do
-  @questions = @survey.questions
   @survey = Survey.find(params[:survey_id])
-  @survey.update(title: params[:title])
-  @questions.each_with_index do |question, index|
-    question.update(question: params[:questions]["question_#{index + 1}".to_sym])
-    choice_num = 1
-    @choices.select { |choice| choice.question_id == question.id}.each do |choice|
-      choice.update(choice: params["choice_#{choice_num}".to_sym])
-      choice_num += 1
-    end
-  end
+  @questions = @survey.questions
+  @survey.edit(params)
   redirect to "/surveys/#{@survey.id}"
 end

@@ -24,4 +24,14 @@ class Survey < ActiveRecord::Base
     end
     raw_data.flatten.sort
   end
+
+  def edit(params)
+    self.update(title: params[:title])
+    questions.each_with_index do |question, index|
+      question.edit(index, params)
+    end
+  end
+
+
+
 end

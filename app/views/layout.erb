@@ -9,11 +9,14 @@
   <script src="/js/application.js"></script>
   <script src="/js/signin.js"></script>
 
-  <title></title>
+  <title>Survey Patriot</title>
 </head>
 <body>
 
   <section class="msg">
+    <div class="modal message-modal hidden contain">
+      <h2 class="message black-scrim"></h2>
+    </div>
     <div class="modal login-form-modal hidden">
       <%= erb :"users/_signin_form", locals: { action: 'login' } %>
     </div>

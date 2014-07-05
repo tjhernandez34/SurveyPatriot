@@ -4,12 +4,11 @@ end
 
 post '/login' do
   @user = User.find_by("email = ?", params[:email])
-  if @user.password == params[:password]
-    session[:id] = @user.id
-    redirect "/users/#{@user.id}"
-  else
-    redirect '/signup'
-  end
+  redirect '/signup' unless @user
+
+  @user.password == params[:password]
+  session[:id] = @user.id
+  redirect "/users/#{@user.id}"
 end
 
 post '/signup' do

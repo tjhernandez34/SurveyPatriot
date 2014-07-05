@@ -3,17 +3,6 @@ class Question < ActiveRecord::Base
 
 # Question#results
   def results(survey)
-    output = {}
-    survey.data
+    survey.data.group_by { |choice| choice.question_id }[id]
   end
-
 end
-
- # Survey.all[0].data.sort_by {|choice| choice.question_id}
-
-
-
-# survey.questions.each do |question|
-#   array = []
-#   survey.data.select { |choice| choice }
-# end

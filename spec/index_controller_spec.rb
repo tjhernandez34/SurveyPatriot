@@ -10,7 +10,9 @@ describe 'IndexController' do
     end
   end
 
-  describe "post '/login'" do
-    it ''
-  end
+  # describe "post '/login'" do
+    # it '' do
+
+    # end
+  # end
 end

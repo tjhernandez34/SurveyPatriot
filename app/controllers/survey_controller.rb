@@ -9,13 +9,13 @@ before '/surveys/*' do
 end
 
 get '/surveys' do
-  erb :surveys
+  erb :"surveys/surveys"
 end
 
 get '/surveys/:survey_id' do
   @survey = Survey.find(params[:survey_id])
   session[:round_id] = Round.create(user_id: session[:id], survey_id: params[:survey_id]).id
-  erb :single_survey
+  erb :"surveys/survey"
 end
 
 post '/surveys/:survey_id' do

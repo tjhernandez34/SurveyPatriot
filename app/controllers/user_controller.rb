@@ -6,7 +6,7 @@ end
 
 get '/users/:user_id' do
   @user = User.find(params[:user_id])
-  erb :profile
+  erb :"users/profile"
 end
 
 get '/users/:user_id/surveys' do
@@ -24,7 +24,7 @@ end
 
 get '/users/:user_id/surveys/:survey_id/confirm' do
   @survey = Survey.find(params[:survey_id])
-  erb :survey
+  erb :"surveys/survey"
 end
 
 post '/users/:user_id/surveys/:survey_id/edit' do

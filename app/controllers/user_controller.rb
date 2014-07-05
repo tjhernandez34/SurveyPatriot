@@ -10,7 +10,7 @@ get '/users/:user_id' do
 end
 
 get '/users/:user_id/surveys' do
-  @surveys = Survey.find_by_user_id(params[:user_id])
+  @surveys = @user.surveys
   erb :"users/surveys"
 end
 

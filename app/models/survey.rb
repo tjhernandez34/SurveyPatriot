@@ -14,7 +14,7 @@ class Survey < ActiveRecord::Base
   end
 
   def results
-    
+    # do we really need a #results for Survey? Question#results may be sufficient
   end
 
   def data

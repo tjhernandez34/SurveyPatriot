@@ -9,7 +9,7 @@
   </h2>
 
   <% @choices.select { |choice| choice.question_id == question.id }.each do |choice| %>
-    <input type="radio" name="answer[<%=choice.id%>]" value="<%=choice.id%>"><%= choice.choice%>
+    <input type="radio" name="answer[<%= question.id %>][<%=choice.id%>]" value="<%=choice.id%>"><%= choice.choice%>
   <% end %>
 <% end %>
   <input id = "submit_answer" type="submit" value="Submit Answers"/>

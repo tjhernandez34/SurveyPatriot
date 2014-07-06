@@ -17,7 +17,7 @@ var counter = 1
   $('#the_submit').on('submit', function(event) {
     event.preventDefault();
     console.log('Email being verified...');
-    newEmail = $('#email').val();
+    var newEmail = $('#email').val();
     console.log(newEmail);
     ajaxRequest = $.ajax({
       url: "/signup",
@@ -25,7 +25,7 @@ var counter = 1
       dataType: 'application/json',
       data: {
         user: {
-          email: newEmail 
+          email: newEmail
         }
       },
       success: function(data){
@@ -33,7 +33,7 @@ var counter = 1
       },
       error: function(data) {
         console.log(data['responseText']);
-        alert(data['responseText']);  
+        alert(data['responseText']);
       }
     });
   });

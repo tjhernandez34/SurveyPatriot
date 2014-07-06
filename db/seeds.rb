@@ -13,7 +13,7 @@
     title: Faker::Company.catch_phrase,
     user_id: 1
     })
-  2.times do
+  4.times do
     question = Question.create({
       question: Faker::Commerce.product_name + "?"
     })

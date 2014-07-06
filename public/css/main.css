@@ -134,7 +134,7 @@ Brand ==========================================================================
 .tag-line {
   position: relative;
   color: #9CC8E5;
-  margin-bottom: 10%;
+  bottom: 20%;
   font-size: 1.5em;
   font-weight: 100;
 }
@@ -155,30 +155,40 @@ Brand ==========================================================================
 Profile ======================================================================================================================================================
 */
 
-.welcome {
-  font-size: 5em;
-}
-
 .profile {
   position: absolute;
   width: 100%;
   top: 20%;
-  bottom: 0;
+  bottom: auto;
 }
 
 .profile-btns {
   position: relative;
   text-align: center;
   height: 50%;
+
 }
 
 .btn-profile {
   display: inline-block;
-  height: 8em;
-  width: 8em;
+  /*height: 8em;*/
+  /*left: 5%;*/
+  /*right: 5%;*/
+  width: 50%;
   margin: 5%;
-  border-radius: 100%;
-  padding: 5%;
+  border-radius: 1em;
+  padding: 5% 10%;
+}
+
+@media (min-width:768px) {
+  .btn-profile {
+    display: inline-block;
+    height: 8em;
+    width: 8em;
+    margin: 5%;
+    border-radius: 100%;
+    padding: 5%;
+  }
 }
 
 .btn-profile p {

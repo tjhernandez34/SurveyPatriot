@@ -193,7 +193,6 @@ Profile ========================================================================
 
 .btn-profile p {
   color: #eee;
-  /*width: 50%;*/
   position: relative;
   top: 30%;
 }
@@ -213,3 +212,24 @@ Profile ========================================================================
   background-color: #293F7F;
 }
 
+/*
+Create Survey ======================================================================================================================================================
+ */
+
+.create-survey-section {
+  padding: 5%;
+}
+
+.create-survey-form {
+  width: 100%;
+  border: 1px dashed black;
+}
+
+.create-survey-section .form-field {
+  border: 2px solid #293F7F;
+  width: 80%;
+}
+
+.survey-end li {
+  display: inline-block;
+}

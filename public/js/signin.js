@@ -64,6 +64,11 @@ $(document).ready(function() {
     });
   });
 
+  $('.modal').on('click', function() {
+    console.log(this)
+    $(this).fadeToggle();
+  });
+
 });
 
 

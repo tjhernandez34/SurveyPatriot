@@ -67,7 +67,7 @@ Links ==========================================================================
 .btn {
   padding: .5em 1em;
   border-radius: .5em;
-  color: #eee;
+  color: #fff;
 }
 
 .btn:hover,
@@ -126,6 +126,12 @@ Brand ==========================================================================
   margin-bottom: 10%;
   font-size: 1.5em;
   font-weight: 100;
+}
+
+.tag-btn:hover,
+.tag-btn:focus,
+.tag-btn:active {
+  border: 2px solid #293F7F;
 }
 
 @media (min-width: 768px) {

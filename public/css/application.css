@@ -21,3 +21,9 @@
 #new_question{
   display: none;
 }
+
+#eagle{
+  position: fixed;
+  bottom: 5px;
+  left: -700px;
+}

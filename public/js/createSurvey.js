@@ -13,8 +13,9 @@ $(document).ready(function() {
 
 	$('.create-survey-section').on('click', '.add-choice', function(){
 		choiceCount++;
-		choiceHTML = '<input class="input_choices" id="choice_' + questionCount + choiceCount + '"><input class="form-field" name="choice_' + questionCount + choiceCount + '" type="text" placeholder = "choice_' + questionCount + choiceCount + '">';
+		choiceHTML = '<input class="input_choices" id="choice_' + questionCount + choiceCount + '"><input id="choice' + questionCount + choiceCount + '" class="form-field" name="choice_' + questionCount + choiceCount + '" type="text" placeholder="add possible choice">';
 		$(this).parent().append(choiceHTML);
+		$('#choice' + questionCount + choiceCount).focus();
 	});
 
 

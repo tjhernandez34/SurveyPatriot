@@ -25,7 +25,7 @@ post '/surveys/:survey_id' do
   p params
   @round = Round.find(session[:round_id])
   params[:answer].each_value do |choice_id|
-    @choice = Choice.find(choice_id[0])
+    @choice = Choice.find(choice_id)
     @round.choices << @choice
   end
   @round.save!

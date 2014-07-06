@@ -222,7 +222,6 @@ Create Survey ==================================================================
 
 .create-survey-form {
   width: 100%;
-  border: 1px dashed black;
 }
 
 .create-survey-section .form-field {
@@ -230,6 +229,20 @@ Create Survey ==================================================================
   width: 80%;
 }
 
-.survey-end li {
+.create-survey-section .choice {
+  border: 2px solid #FF4540;
+  width: 60%;
+}
+
+.create-survey-section .survey-title {
+  border: none;
+  font-size: 4em;
+  color: #293F7F;
+  /*width: 60%;*/
+}
+
+.survey-end li,
+.question-end li {
   display: inline-block;
+  margin: 0 5%;
 }

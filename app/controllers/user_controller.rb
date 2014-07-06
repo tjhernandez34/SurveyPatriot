@@ -17,7 +17,7 @@ end
 
 get '/users/:user_id/surveys/create' do
   @counter = 1
-  erb :"surveys/_create_survey_form"
+  erb :"surveys/new"
 end
 
 post '/users/:user_id/surveys/create' do

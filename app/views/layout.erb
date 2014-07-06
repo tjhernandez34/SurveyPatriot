@@ -1,37 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900|Raleway:400,700|Josefin+Slab:400,700' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
-  <link rel="stylesheet" href="/css/application.css">
-
+  <link rel="stylesheet" href="/css/shoelace.css">
+  <link rel="stylesheet" href="/css/main.css">
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/signin.js"></script>
 
-  <title></title>
+  <title>Survey Patriot</title>
 </head>
 <body>
+
+  <section class="msg">
+    <div class="modal message-modal hidden contain">
+      <h2 class="message black-scrim"></h2>
+    </div>
+    <div class="modal login-form-modal hidden">
+      <%= erb :"users/_signin_form", locals: { action: 'login' } %>
+    </div>
+    <div class="modal signup-form-modal hidden">
+      <%= erb :"users/_signin_form", locals: { action: 'signup' } %>
+    </div>
+  </section>
+
   <header>
     <ul class="nav">
+      <% unless @logged_in %>
+      <li>
+        <a class="signup btn btn-header btn-secondary" href="/signup">sign up</a>
+      </li>
+      <% end %>
+      <% if @logged_in %>
       <li>
         <a class="btn" href="/">home</a>
       </li>
       <li>
-        <a class="btn" href='/users/<%="#{session[:id]}"%>'>My Profile</a>
+        <a class="btn" href='/users/<%="#{session[:id]}"%>'>my profile</a>
       </li>
       <li>
-        <a class="btn" href="/logout">log out</a>
+        <a class="btn btn-header btn-primary" href="/logout">log out</a>
       </li>
+      <% else %>
+      <li>
+        <a class="login btn btn-header btn-primary" href="#">log in</a>
+      </li>
+      <% end %>
     </ul>
   </header>
 
   <%= yield %>
 </body>
 </html>
+
+

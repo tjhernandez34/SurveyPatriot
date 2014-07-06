@@ -1,4 +1,6 @@
 class Question < ActiveRecord::Base
+  validates_presence_of :question
+  
   has_and_belongs_to_many :surveys
 
   def results(survey)

@@ -1,0 +1,112 @@
+/*COLORS*/
+/*primary blue => #3E5FBF*/
+/*secondary red => #FF4540*/
+/*darker blue => #293F7F*/
+/*darkest blue => #152040*/
+/*light blue => #9CC8E5*/
+/*
+Header ======================================================================================================================================================
+*/
+
+header {
+  background-color: #152040;
+}
+
+@media (min-width: 768px) {
+  header {
+    text-align: right;
+  }
+}
+
+.nav {
+  padding: 5%;
+}
+
+.nav li {
+  display: inline-block;
+}
+
+
+/*
+Forms ======================================================================================================================================================
+*/
+
+.modal form {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+}
+
+.form-field {
+  padding: .5em;
+  margin: 1em;
+  border-radius: .5em;
+  border: none;
+  color: #152040;
+  text-align: center;
+  font-size: 1.5em;
+  font-family: inherit;
+}
+
+.form-field:hover,
+.form-field:focus,
+.form-field:active {
+  outline: none;
+  border: none;
+}
+
+.login-btn {
+  width: inherit;
+}
+
+/*
+Links ======================================================================================================================================================
+*/
+
+.btn {
+  padding: .5em 1em;
+  border-radius: .5em;
+  color: #eee;
+}
+
+.btn:hover,
+.btn:focus,
+.btn:active {
+  border: 2px solid #eee;
+}
+
+.btn-primary {
+  background-color: #3E5FBF;
+  border: 2px solid #293F7F;
+}
+
+.btn-secondary {
+  background-color: #FF4540;
+  border: 2px solid #FF2320;
+}
+
+/*
+Messages ======================================================================================================================================================
+*/
+
+.msg {
+  width: 100%;
+  text-align: center;
+}
+
+.message-modal {
+  position: absolute;
+  background-image: url('/images/patriot.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+}
+
+.message {
+  position: relative;
+  top: 40%;
+  width: 50%;
+  padding: 1em;
+  margin: 0 auto;
+}

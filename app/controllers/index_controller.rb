@@ -12,10 +12,11 @@ post '/login' do
   unless @user
     halt 400, 'looks like you need to create an account'
   end
-  redirect '/signup' unless @user
+  # redirect '/signup' unless @user
   @user.password == params[:user][:password]
   session[:id] = @user.id
-  redirect "/users/#{@user.id}"
+  p "/users/#{@user.id}"
+  halt 200, "/users/#{@user.id}"
 end
 
 post '/signup' do

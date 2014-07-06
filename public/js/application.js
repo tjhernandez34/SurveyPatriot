@@ -22,7 +22,6 @@ var counter = 1
     ajaxRequest = $.ajax({
       url: "/signup",
       method: 'POST',
-      dataType: 'application/json',
       data: {
         user: {
           email: newEmail

@@ -25,8 +25,8 @@ $(document).ready(function() {
         }
       },
       success: function(data) {
-        console.log('success func')
-        // NEEHGJFLSHDFJKEHSFLKFJKLHD
+        console.log('success func');
+        window.location.href = "http://localhost:9292/" + data;
       },
       error: function(data) {
         $('.login-form .user-email').val('');

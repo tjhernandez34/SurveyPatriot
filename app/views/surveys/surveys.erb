@@ -1,6 +1,20 @@
-<h1>All surveys:</h1>
+<h1>take a survey, <span class="alt-col">for america</span></h1>
 <section class="surveys">
+  <ul>
   <% @surveys.each do |survey| %>
-    <a class="survey-title" href=/surveys/<%= survey.id %>><%= survey.title %></a>
+  	<li class="survey-display">
+  		<ul>
+		  	<li>
+		  		<h3>
+		  			<span class='alt-col p'><%= survey.id %>. </span><a class="survey-title" href=/surveys/<%= survey.id %>><%= survey.title %></a>
+		  		</h3>
+		  	</li>
+		  	<li class="inner-lite">
+		  		<p>created by <%= survey.user.name %> on <%= survey.created_at.strftime("%B %e, %Y") %></p>
+		  		<p class="alt-col">(<%= survey.rounds.count > 1 ? "taken by #{survey.rounds.count} people so far" : "be a maverick. take the damn survey" %>)</p>
+		  	</li>
+  		</ul>
+  	</li>
   <% end %>
+  </ul>
 </section>

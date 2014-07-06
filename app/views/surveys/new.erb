@@ -1,7 +1,7 @@
 <section class="create-survey-section">
 
   <form class="create-survey-form" action="/users/<%= @user.id %>/surveys/create" method="post">
-    <input class="form-field survey-title" name="survey[title]" type="text" placeholder="survey name" autocomplete="off">
+    <input class="form-field survey-title" name="survey[title]" type="text" placeholder="survey name here" autocomplete="off">
     <article class="question-container">
     	<input id="question1" class="form-field" name="questions[question_1][question]" type="text" placeholder="ask a question">
     	<ul class="question-end">

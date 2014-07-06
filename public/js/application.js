@@ -14,28 +14,4 @@ var counter = 1
     $('#question_' + counter).show();
   });
 
-  $('#the_submit').on('submit', function(event) {
-    event.preventDefault();
-    console.log('Email being verified...');
-    var newEmail = $('#email').val();
-    console.log(newEmail);
-    ajaxRequest = $.ajax({
-      url: "/signup",
-      method: 'POST',
-      dataType: 'application/json',
-      data: {
-        user: {
-          email: newEmail
-        }
-      },
-      success: function(data){
-        console.log("success");
-      },
-      error: function(data) {
-        console.log(data['responseText']);
-        alert(data['responseText']);
-      }
-    });
-  });
-
 });

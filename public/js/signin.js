@@ -29,8 +29,8 @@ $(document).ready(function() {
         window.location.href = "http://localhost:9292/" + data;
       },
       error: function(data) {
-        $('.login-form .user-email').val('');
-        $('.login-form .user-password').val('');
+        // $('.login-form .user-email').val('');
+        // $('.login-form .user-password').val('');
         console.log('error func');
         console.log(data['responseText']);
         $('.message').text(data['responseText']);

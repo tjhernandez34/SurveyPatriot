@@ -13,18 +13,21 @@ header {
   background-color: #152040;
 }
 
-@media (min-width: 768px) {
-  header {
-    text-align: right;
-  }
-}
-
 .nav {
   padding: 5%;
 }
 
 .nav li {
   display: inline-block;
+}
+
+@media (min-width: 768px) {
+  header {
+    text-align: right;
+  }
+  .nav {
+    padding: 3%;
+  }
 }
 
 
@@ -148,12 +151,55 @@ Brand ==========================================================================
   }
 }
 
+/*
+Profile ======================================================================================================================================================
+*/
+
+.welcome {
+  font-size: 5em;
+}
+
+.profile {
+  position: absolute;
+  width: 100%;
+  top: 20%;
+  bottom: 0;
+}
+
+.profile-btns {
+  position: relative;
+  text-align: center;
+  height: 50%;
+}
+
+.btn-profile {
+  display: inline-block;
+  height: 8em;
+  width: 8em;
+  margin: 5%;
+  border-radius: 100%;
+  padding: 5%;
+}
+
+.btn-profile p {
+  color: #eee;
+  /*width: 50%;*/
+  position: relative;
+  top: 30%;
+}
+
+.profile-btns a:hover,
+.profile-btns a:active,
+.profile-btns a:focus {
+  border: none;
+  height: 9em;
+  width: 9em;
+}
 
 
-
-
-
-
-
-
+.btn-profile:hover,
+.btn-profile:active,
+.btn-profile:focus {
+  background-color: #293F7F;
+}
 

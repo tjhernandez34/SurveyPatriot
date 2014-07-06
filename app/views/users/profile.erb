@@ -1,6 +1,20 @@
-<h1 class="welcome">Welcome <%= @user.name %></h1>
-<ul>
-  <li><a class="" href="/users/<%= @user.id%>/surveys/create">Create a new survey</a></li>
-  <li><a class="" href="/users/<%= @user.id%>/surveys">View surveys I've created</a></li>
-  <li><a class="" href="/surveys">Take a new survey</a></li>
-</ul>
+<section class="profile content">
+  <h1 class="welcome alt-col">hi, <%= @user.name %></h1>
+  <ul class="profile-btns">
+      <a class="" href="/users/<%= @user.id%>/surveys/create">
+        <li class="btn btn-primary btn-profile" >
+            <p class="alt-col">create a survey</p>
+        </li>
+      </a>
+      <a class="" href="/users/<%= @user.id%>/surveys">
+        <li class="btn btn-primary btn-profile" >
+            <p class="alt-col">view my surveys</p>
+        </li>
+      </a>
+      <a class="" href="/surveys">
+        <li class="btn btn-primary btn-profile" >
+            <p class="alt-col">take a survey</p>
+        </li>
+      </a>
+  </ul>
+</section>

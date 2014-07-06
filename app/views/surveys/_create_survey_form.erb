@@ -1,8 +1,11 @@
+<link rel="stylesheet" href="/css/scrolling_questions.css">
+
 <form class="create-survey-form" action="/users/<%= @user.id %>/surveys/create" method="post">
   <input id = 'title' name="survey[title]" type="text" placeholder="survey title" autofocus><br>
   <a href = # id = 'create_survey'>Start Creating Survey<a/>
 
   <% (1..4).each do |num| %>
+  <div id="question<%= num %>">
   <div class = 'input_questions' id = 'question_<%= num %>'>
   <input name="questions[question_<%= num %>][question]" type="text" placeholder = 'question_<%= num %>'><br>
   </div>
@@ -12,6 +15,7 @@
   </div>
     <% end %>
   <% end %>
+</div>
   <a href = # id = 'new_question'>Add another Question<a/>
   <input id = 'finish_survey' type="submit" value="Finish Survey">
 </form>

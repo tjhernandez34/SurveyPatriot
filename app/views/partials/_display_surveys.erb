@@ -5,7 +5,12 @@
   		<ul>
 		  	<li>
 		  		<h3>
-		  			<span class='alt-col p'><%= counter %>. </span><a class="survey-title" href=/surveys/<%= survey.id %>><%= survey.title %></a>
+		  			<span class='alt-col p'>
+		  				<%= counter %>. 
+		  			</span>
+		  			<a class="survey-title" href="/<%= @user.id == survey.user_id ? "users/#{@user.id}/surveys/#{survey.id}/results" : "/surveys/#{survey.id}" %>">
+		  				<%= survey.title %>
+		  			</a>
 		  		</h3>
 		  	</li>
 		  	<li class="inner-lite">

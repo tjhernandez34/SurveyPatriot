@@ -5,7 +5,7 @@
     because gathering data is what Uncle Sam does best
   </h3>
   <% if @logged_in %>
-  <a class="btn btn-primary tag-btn" href="/users/<%= @logged_in %>">create a survey</a>
+  <a class="btn btn-primary tag-btn" href="/users/<%= @logged_in %>/surveys/create">create a survey</a>
   <% else %>
   <a class="btn btn-secondary tag-btn signup" href="">get started in minutes</a>
   <% end %>

@@ -8,7 +8,7 @@
 		  			<span class='alt-col p'>
 		  				<%= counter %>. 
 		  			</span>
-		  			<a class="survey-title" href="/<%= @user.id == survey.user_id ? "users/#{@user.id}/surveys/#{survey.id}/results" : "/surveys/#{survey.id}" %>">
+		  			<a class="survey-title" href="/<%= @user && @user.id == survey.user_id ? "users/#{@user.id}/surveys/#{survey.id}/results" : "surveys/#{survey.id}" %>">
 		  				<%= survey.title %>
 		  			</a>
 		  		</h3>

@@ -22,8 +22,7 @@ end
 post '/signup' do
   if User.find_by(email: params[:user][:email])
     p params[:user][:email]
-    content_type 'application/json'
-    halt 400, {message: "Email already exists"}.to_json
+    halt 400, "Email already exists"
   else
     p params
     @user = User.create(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password])

@@ -64,9 +64,8 @@ $(document).ready(function() {
     });
   });
 
-  $('.modal').on('click', function() {
-    console.log(this)
-    $(this).fadeToggle();
+  $('.close').on('click', function() {
+    $('.modal').hide(400);
   });
 
 });

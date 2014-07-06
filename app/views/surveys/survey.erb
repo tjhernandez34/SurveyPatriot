@@ -1,15 +1,14 @@
 <h1 class="survey-title"><%=@survey.title%></h1>
 
-<form action = '/surveys/<%=@survey.id%>' method = "post">
+<form action="/surveys/<%=@survey.id%>" method="post">
 
-<% @survey.questions.each do |question| %>
-  <h2>
-    <%= question.question %>
-  </h2>
-
-  <% @choices.select { |choice| choice.question_id == question.id }.each do |choice| %>
-    <input type="radio" name="answer[<%= question.id %> <%=choice.id%>]" value="<%=choice.id%>"><%= choice.choice%>
-  <% end %>
-<% end %>
+	<% @survey.questions.each do |question| %>
+		<h2>
+		  <%= question.question %>
+		</h2>
+		<% @choices.select { |choice| choice.question_id == question.id }.each do |choice| %>
+		  <input type="radio" name="answer[<%= question.id %> <%=choice.id%>]" value="<%=choice.id%>"><%= choice.choice%>
+		<% end %>
+	<% end %>
   <input id = "submit_answer" type="submit" value="Submit Answers"/>
 </form>

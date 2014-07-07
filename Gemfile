@@ -17,6 +17,8 @@ gem 'activerecord', '~>4.1'
 
 gem 'rake'
 
+gem 'carrierwave'
+
 group :test do
   gem 'rack-test'
   gem 'rspec'

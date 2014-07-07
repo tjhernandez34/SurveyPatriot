@@ -34,8 +34,8 @@ $(document).ready(function() {
         console.log('error func');
         console.log(data['responseText']);
         $('.message').text(data['responseText']);
-        $('.message-modal').fadeToggle( 200).delay(3000).fadeToggle(800);
-        $('.signup-form-modal').delay(3000).fadeToggle(400);
+        $('.message-modal').fadeToggle(200).delay(5000).fadeToggle(800);
+        $('.signup-form-modal').delay(5000).fadeToggle(400);
       }
     });
   });

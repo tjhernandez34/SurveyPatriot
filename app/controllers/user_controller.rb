@@ -17,11 +17,11 @@ end
 
 get '/users/:user_id/surveys/create' do
   @counter = 1
-  erb :"surveys/_create_survey_form"
+  erb :"surveys/new"
 end
 
 post '/users/:user_id/surveys/create' do
-  survey = Survey.create(title: params[:survey][:title], user_id: params[:user_id])
+  survey = Survey.create(title: params[:survey][:title], user_id: params[:user_id], image_url: params[:survey][:url] )
   questions = []
   params[:questions].each { |q| questions << Question.create(q[1]) }
   survey.load(questions, params)

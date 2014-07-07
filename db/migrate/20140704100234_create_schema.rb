@@ -10,6 +10,7 @@ class CreateSchema < ActiveRecord::Migration
     create_table :surveys do |t|
       t.string      :title
       t.integer     :user_id
+      t.string      :image_url, :default => 'http://media-cache-ec0.pinimg.com/736x/f3/c4/95/f3c4953524180f2b184642a693a91ccc.jpg'
       t.timestamps
     end
 

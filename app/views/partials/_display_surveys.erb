@@ -10,6 +10,7 @@
 		  			</span>
 		  			<a class="survey-title" href="/<%= @user && @user.id == survey.user_id ? "users/#{@user.id}/surveys/#{survey.id}/results" : "surveys/#{survey.id}" %>">
 		  				<%= survey.title %>
+		  				<img width = '80px' src = '<%=survey.image_url%>'>
 		  			</a>
 		  		</h3>
 		  	</li>

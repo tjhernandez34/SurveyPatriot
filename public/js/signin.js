@@ -55,11 +55,14 @@ $(document).ready(function() {
         }
       },
       success: function(data){
-        console.log("success");
+        console.log('success func');
+        window.location.href = "http://localhost:9292/" + data;
       },
       error: function(data) {
         console.log(data['responseText']);
-        alert(data['responseText']);
+        $('.message').text(data['responseText']);
+        $('.message-modal').fadeToggle( 200).delay(3000).fadeToggle(800);
+        $('.login-form-modal').delay(3000).fadeToggle(400);
       }
     });
   });

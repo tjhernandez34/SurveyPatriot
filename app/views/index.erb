@@ -1,15 +1,15 @@
 
 <section class="welcome inner content">
 	<h1 class='brand inner'><span class="alt-col">Survey</span> Patriot</h1>
-  <h2 class="tag-line content inner">
+  <h3 class="tag-line content inner">
     because gathering data is what Uncle Sam does best
-  </h2>
+  </h3>
   <% if @logged_in %>
   <a class="btn btn-primary tag-btn" href="/users/<%= @logged_in %>/surveys/create">create a survey</a>
   <% else %>
-  <a class="btn btn-primary tag-btn signup" href="">get started in minutes</a>
+  <a class="btn btn-secondary tag-btn signup" href="">get started in minutes</a>
   <% end %>
-  <a class="btn btn-secondary tag-btn" href="/surveys">take a survey</a>
+  <div id = "eagle"><img src = "/images/eagle.png"></div>
+  <iframe class = "hidden" src="//www.youtube.com/embed/_HHszKElVdk?autoplay=1"></iframe>
   <iframe class="hidden" src="//www.youtube.com/embed/LINsNCaxZ5U?autoplay=1"></iframe>
-  <img id="eagle" src="/images/eagle.png">
 </section>

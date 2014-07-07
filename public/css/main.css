@@ -121,8 +121,9 @@ Messages =======================================================================
 
 .message {
   position: relative;
+  text-align: center;
   top: 40%;
-  width: 50%;
+  width: 55%;
   padding: 1em;
   margin: 0 auto;
 }

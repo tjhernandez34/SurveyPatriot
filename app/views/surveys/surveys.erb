@@ -1,6 +1,2 @@
-<h1>All surveys:</h1>
-<section class="surveys">
-  <% @surveys.each do |survey| %>
-    <a class="survey-title" href=/surveys/<%= survey.id %>><%= survey.title %></a>
-  <% end %>
-</section>
+<h1>take a survey, <span class="alt-col">for america</span></h1>
+<%= erb :"partials/_display_surveys" %>

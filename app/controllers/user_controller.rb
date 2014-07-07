@@ -25,6 +25,10 @@ post '/users/:user_id/surveys/create' do
   questions = []
   params[:questions].each { |q| questions << Question.create(q[1]) }
   survey.load(questions, params)
+  user = User.find(params[:user_id])
+  user.thumbnail = File.open(params[:file])
+  user.save!
+  @uploader = ThumbnailUploader.new
   redirect to "/surveys/#{survey.id}"
 end
 

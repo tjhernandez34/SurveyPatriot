@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  mount_uploader :thumbnail, ThumbnailUploader
   validates_presence_of :name, :email, :password_hash
   validates_uniqueness_of :email
 

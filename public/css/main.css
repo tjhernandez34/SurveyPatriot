@@ -5,6 +5,10 @@
 /*darkest blue => #152040*/
 /*light blue => #9CC8E5*/
 
+.inner-lite {
+  padding: 2%;
+}
+
 /*
 Header ======================================================================================================================================================
 */
@@ -117,14 +121,15 @@ Messages =======================================================================
 
 .message {
   position: relative;
+  text-align: center;
   top: 40%;
-  width: 50%;
+  width: 55%;
   padding: 1em;
   margin: 0 auto;
 }
 
 /*
-Brand ======================================================================================================================================================
+Index ======================================================================================================================================================
 */
 
 .brand {
@@ -149,6 +154,10 @@ Brand ==========================================================================
   .brand {
     font-size: 6em;
   }
+}
+
+.welcome a {
+  margin: 0 2em;
 }
 
 /*
@@ -193,7 +202,6 @@ Profile ========================================================================
 
 .btn-profile p {
   color: #eee;
-  /*width: 50%;*/
   position: relative;
   top: 30%;
 }
@@ -213,3 +221,60 @@ Profile ========================================================================
   background-color: #293F7F;
 }
 
+/*
+Create Survey ======================================================================================================================================================
+ */
+
+.create-survey-section {
+  /*padding: 5%;*/
+}
+
+.create-survey-form {
+  width: 100%;
+}
+
+.create-survey-section .form-field {
+  border: 2px solid #293F7F;
+  width: 80%;
+}
+
+.create-survey-section .choice {
+  border: 2px solid #FF4540;
+  width: 60%;
+}
+
+.create-survey-section .survey-title {
+  border: none;
+  font-size: 4em;
+  color: #293F7F;
+  /*width: 60%;*/
+}
+
+.survey-end li,
+.question-end li {
+  display: inline-block;
+  margin: 0 5%;
+}
+
+.question-end {
+  padding: 5%;
+}
+
+/*
+Take Survey ======================================================================================================================================================
+ */
+
+.survey-display {
+  padding: 2% 15%;
+  /*text-align: center*/
+  margin: 0 auto;
+  border-top: 1px solid #444;
+}
+
+.survey-display ul * {
+  text-align: left;
+}
+
+.survey-image {
+  width: 20%;
+}

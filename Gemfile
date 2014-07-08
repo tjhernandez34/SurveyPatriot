@@ -21,5 +21,5 @@ group :test do
   gem 'rack-test'
   gem 'rspec'
   gem 'nokogiri', '~> 1.6.1'
-  gem 'faker'
+  # gem 'faker'
 end

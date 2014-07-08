@@ -22,13 +22,13 @@ end
 post '/signup' do
   if User.find_by(email: params[:user][:email])
     p params[:user][:email]
-    halt 400, "Email already exists"
+    halt 400, "dude, you already have an account"
   else
     p params
     @user = User.create(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password])
     p @user
     session[:id] = @user.id
-    halt 200#, redirect "/users/#{@user.id}"
+    halt 200, "/users/#{@user.id}"
  end
 end
 

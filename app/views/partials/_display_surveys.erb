@@ -1,0 +1,26 @@
+<section class="surveys">
+  <ul>
+  <% counter = 1; @surveys.each do |survey| %>
+  	<li class="survey-display">
+  		<ul>
+		  	<img class="survey-image" src='<%=survey.image_url%>'>
+        <li>
+          <h3>
+            <span class='alt-col p'>
+              <%= counter %>.
+            </span>
+            <a class="survey-title" href="/<%= @user && @user.id == survey.user_id ? "users/#{@user.id}/surveys/#{survey.id}/results" : "surveys/#{survey.id}" %>">
+              <%= survey.title %>
+            </a>
+          </h3>
+        </li>
+        <li class="inner-lite">
+          <p>created by <%= survey.user.name %> on <%= survey.created_at.strftime("%B %e, %Y") %></p>
+          <p class="alt-col">(<%= survey.rounds.count > 1 ? "taken by #{survey.rounds.count} people so far" : "be a maverick. take the damn survey" %>)</p>
+        </li>
+      </ul>
+  	</li>
+  	<% counter += 1 %>
+  <% end %>
+  </ul>
+</section>

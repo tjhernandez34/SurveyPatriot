@@ -26,7 +26,7 @@ $(document).ready(function() {
       },
       success: function(data) {
         console.log('success func');
-        window.location.href = "http://localhost:9292/" + data;
+        window.location.href = "http://surveypatriot.herokuapp.com/" + data;
       },
       error: function(data) {
         // $('.login-form .user-email').val('');
@@ -56,7 +56,7 @@ $(document).ready(function() {
       },
       success: function(data){
         console.log('success func');
-        window.location.href = "http://localhost:9292/" + data;
+        window.location.href = "http://surveypatriot.herokuapp.com/" + data;
       },
       error: function(data) {
         console.log(data['responseText']);

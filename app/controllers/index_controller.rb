@@ -16,7 +16,7 @@ post '/login' do
   @user.password == params[:user][:password]
   session[:id] = @user.id
   p "/users/#{@user.id}"
-  halt 200, "/users/#{@user.id}"
+  halt 200, "http://surveypatriot.herokuapp.com/users/#{@user.id}"
 end
 
 post '/signup' do
@@ -28,7 +28,7 @@ post '/signup' do
     @user = User.create(name: params[:user][:name], email: params[:user][:email], password: params[:user][:password])
     p @user
     session[:id] = @user.id
-    halt 200, "/users/#{@user.id}"
+    halt 200, "http://surveypatriot.herokuapp.com/users/#{@user.id}"
  end
 end
 
